@@ -1,3 +1,3 @@
 # ProjetoPW
 Alexandre Silva - 190100216
-O meu projeto consiste numa loja online ou galeria de fotos.
+O meu projeto consiste numa loja online.
