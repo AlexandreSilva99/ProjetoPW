@@ -7,12 +7,12 @@
     <!-- Header -->
     <div id="shadow">
     <div id="header">
-        <div id="headerleft">
-            <a href="index.php">Pro Detail</a>
-        </div>
-
-        <div id="search">
-        <?php
+                <div id="headerLeft">
+                    <a href="index.php">Pro Detail</a>
+                </div>
+                
+                <div id="search">
+                    <?php
                     echo '
                     <form method="POST" action="prod_search.php">
                         <input type="text" name="pesquisa" placeholder="Pesquisar...">
@@ -23,14 +23,51 @@
 				</form>
                     ';
 ?>
-        </div>
+                </div>
+                
 
-        <div id="headerrigth">
-            <div class="topRigth"></div>
-            <div class="topRigth"></div>
-            <div class="topRigth"></div>
-        </div>
-    <!-- Fim do Header -->
+                <div id="headerRight">
+                    <div class="topRight"></div>
+                    <div class="topRight"></div>
+                    <div class="topRight">
+                        <?php
+                            if(!isset($_SESSION['email'])){
+                                echo '<a href="login.php"><img src="img/header/cliente.png" id="header_user" onmouseover="user_over()" onmouseout="user_out()" alt=""></a>';
+                            } 
+                            
+                            elseif($_SESSION['email'] == "Admin"){
+                                echo '
+                                    <div class="dropdown">
+                                        <div id="topRight"><img onclick="dropuser()" class="dropuserbtt" src="img/header/admin.png" id="header_user" onmouseover="admin_over()" onmouseout="admin_out()"></div>  
+                                        <div id="dropdownuser" class="dropdown-content">
+                                            <br>
+                                            <a href="functions/adicionar">Adicionar prod.</a>
+                                            <a href="encomendas.php">Ver encomendas</a>
+                                            <a href="logout.php">Terminar Sessão</a>
+                                        </div>
+                                    </div>
+                                ';
+                            } 
+                            
+                            elseif(isset($_SESSION['email'])){
+                                echo '
+                                    <div class="dropdown">
+                                        <div id="topRight"><img onclick="dropuser()" class="dropuserbtt" src="img/avatars/'.$_SESSION['avatar'].'" id="user_header_img"></div>  
+                                        <div id="dropdownuser" class="dropdown-content">
+                                            <br>
+                                            <a href="profile.php">Perfil</a>
+                                            <a href="cart.php">Carrinho</a>
+                                            <a href="logout.php">Terminar Sessão</a>
+                                        </div>
+                                    </div>
+                                ';
+                            };
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <!-- /Header -->
+
             <!-- Navbar -->
             <nav id="navbar">
                 <h1>Menu Principal</h1>
@@ -47,6 +84,6 @@
             </nav>
     </div>
     
-    <!-- Fim da Navbar -->
+    <!-- /Navbar -->
     <script src="scripts/script.js"></script>
-</body>
+</html>
