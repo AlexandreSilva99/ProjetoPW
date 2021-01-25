@@ -1,6 +1,7 @@
 <?php
-   //session_start();
-
+    session_start();
+    include("functions/functions.php");
+    $con = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
 ?>
 
 <!DOCTYPE html>

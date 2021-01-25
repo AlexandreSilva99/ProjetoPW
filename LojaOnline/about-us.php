@@ -1,7 +1,7 @@
 <?php
-    //session_start();
-    //include("functions/functions.php");
-    //$con = mysqli_connect("sql213.epizy.com","epiz_24003581","OnM36Uhzmk1mNRU","epiz_24003581_globalmusik");
+    session_start();
+    include("functions/functions.php");
+    $con = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
 ?>
 
 <!DOCTYPE html>

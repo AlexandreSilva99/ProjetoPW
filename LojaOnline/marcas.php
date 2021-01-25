@@ -1,10 +1,10 @@
 <?php
-    //session_start();
-    
-    //$con = mysqli_connect("sql213.epizy.com","epiz_24003581","OnM36Uhzmk1mNRU","epiz_24003581_globalmusik");
-    //include("includes/config.php");
-    //include("functions/functions.php");
+    session_start();
+    include("functions/functions.php");
+    include("includes/config.php");
+    $con = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
 ?>
+
 
 <html lang="pt">
 <head>
