@@ -29,36 +29,36 @@
                 <p class="location-bar">Novidades</p>
                 <br>
                 <?php  
-                   // getpro();
-                   // get_pro_brand();
+                    getpro();
+                    get_pro_brand();
                 ?>
             </div>
 
             <div class="flex-item" id="flex-right">
                 <?php 
-                  //  if(isset($_SESSION['email'])) {
-                  //      if($_SESSION['email'] != 'Admin') {
+                    if(isset($_SESSION['email'])) {
+                        if($_SESSION['email'] != 'Admin') {
                             include 'includes/carrinho-right.php';
-                  //      } else {
-                  //          include 'includes/carrinho-right-admin.php';
-                  //      }
-                  //  } else {
-                  //      include 'includes/carrinho-right.php';
-                  //  }
+                        } else {
+                            include 'includes/carrinho-right-admin.php';
+                        }
+                    } else {
+                        include 'includes/carrinho-right.php';
+                    }
                 ?>
                 <br><br>
                 <?php
-                   // if(isset($_SESSION['email'])) {
-                   //     if($_SESSION['email'] != "Admin"){
-                   //        echo '
-                   //             <a href="encomendas.php" class="ver-encomendas-link">
-                   //                 <div class="ver-encomendas">
-                   //                     Ver Encomendas
-                   //                 </div>
-                   //             </a>
-                   //         ';
-                   //     }
-                   // }
+                    if(isset($_SESSION['email'])) {
+                        if($_SESSION['email'] != "Admin"){
+                           echo '
+                                <a href="encomendas.php" class="ver-encomendas-link">
+                                    <div class="ver-encomendas">
+                                        Ver Encomendas
+                                    </div>
+                                </a>
+                            ';
+                        }
+                    }
                 ?>
             </div>
         </div>

@@ -27,15 +27,16 @@ function getbrands_15_1(){
 
 	$get_brands = "select * from marca where idMarca >= 1 and idMarca <= 15 order by nome ASC";
 	$run_brands = mysqli_query($con,$get_brands);
-
+// <img src=" . $brand_img . " class='img-marca'></img><br>
 	while($row_brands=mysqli_fetch_array($run_brands)){
     $brand_id = $row_brands['idMarca'];
 		$brand_title = $row_brands['nome'];
-		$brand_img = $row_brands['imagem'];
+		$brand_img = $row_brands['Imagem'];
     echo "
         <div id='flex-container'>
           <div class='flex-item'>
-            <img src=" . $brand_img . " class='img-marca'></img><br>
+          
+          <img src='img/categorias/$brand_img'>
           </div>
           <div class='flex-item-center'>
             <div class='nome-marca'>" . $brand_title . "</div><br>
@@ -81,7 +82,7 @@ function getbrands_15_3(){
 
 	$get_brands = "select * from marca where idMarca >= 31 and idMarca <= 45 order by nome ASC";
 	$run_brands = mysqli_query($con,$get_brands);
-
+// <img src=" . $brand_img . " class='img-marca'></img><br>
 	while($row_brands=mysqli_fetch_array($run_brands)){
     $brand_id = $row_brands['idMarca'];
 		$brand_title = $row_brands['nome'];
@@ -89,7 +90,8 @@ function getbrands_15_3(){
     echo "
         <div id='flex-container'>
         <div class='flex-item'>
-              <img src=" . $brand_img . " class='img-marca'></img><br>
+              
+              <img src='img/categorias/$brand_img'>
             </div>
             <div class='flex-item-center'>
               <div class='nome-marca'>" . $brand_title . "</div><br>
@@ -170,7 +172,7 @@ function getbrands_15_6(){
     echo "
         <div id='flex-container'>
         <div class='flex-item'>
-              <img src=" . $brand_img . " class='img-marca'></img><br>
+              <img src='img/categorias/$brand_img' class='img-marca'></img><br>
             </div>
             <div class='flex-item-center'>
               <div class='nome-marca'>" . $brand_title . "</div><br>
@@ -187,11 +189,11 @@ function getbrands_15_6(){
 
 // GET Novidades (9)
 function getpro(){
-	if(!isset($_GET['cat'])){
+	if(!isset($_GET['AutoFinesse'])){
 		if(!isset($_GET['brand'])){
       global $con;
       
-      $get_pro = "select * from produto where estado='ativo' order by idProduto DESC LIMIT 9";
+      $get_pro = "select * from produto order by idProduto DESC LIMIT 9";
       $run_pro = mysqli_query($con,$get_pro);
     
       while($row_pro = mysqli_fetch_array($run_pro)){
@@ -207,7 +209,7 @@ function getpro(){
             <div class='prod_box'>
                 <div class='center_prod_box'>
                 <div class='product_img'>
-                    <img src='img/produtos/$product_image'>
+                    <img src='img/categorias/$product_image'>
                 </div>
                 <div class='product_title'>
                     $product_title
@@ -230,7 +232,7 @@ function getnewproducts(){
 		if(!isset($_GET['brand'])){
       global $con;
       
-      $get_pro = "select * from produto where estado='ativo' order by idProduto DESC LIMIT 18";
+      $get_pro = "select * from produto order by idProduto DESC LIMIT 18";
       $run_pro = mysqli_query($con,$get_pro);
     
       while($row_pro = mysqli_fetch_array($run_pro)){
@@ -246,7 +248,7 @@ function getnewproducts(){
             <div class='prod_box'>
                 <div class='center_prod_box'>
                 <div class='product_img'>
-                    <img src='img/produtos/$product_image'>
+                    <img src='img/categorias/$product_image'>
                 </div>
                 <div class='product_title'>
                     $product_title
@@ -270,7 +272,7 @@ function get_pro_brand(){
 		$brand_id = $_GET['brand'];
 	  global $con;
 
-    $get_pro = "select * from produto where idMarca = '$brand_id' and estado='ativo'";
+    $get_pro = "select * from produto where idMarca = '$brand_id'";
     $run_pro = mysqli_query($con,$get_pro);
     
     while($row_pro = mysqli_fetch_array($run_pro)){
@@ -286,7 +288,7 @@ function get_pro_brand(){
         <div class='prod_box'>
           <div class='center_prod_box'>
             <div class='product_img'>
-              <img src='img/produtos/$product_image'>
+              <img src='img/categorias/$product_image'>
             </div>
             <div class='product_title'>
               $product_title

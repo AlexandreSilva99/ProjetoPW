@@ -33,11 +33,11 @@
                         if(!isset($_GET['brand'])){
                             global $con;
                             
-                            $get_pro = "select * from instrumento where estado='ativo' and idSubCategoria2='1' order by preco ASC";
+                            $get_pro = "select * from produto where estado='ativo' and idSubCategoria2='1' order by preco ASC";
                             $run_pro = mysqli_query($con,$get_pro);
                             
                             while($row_pro = mysqli_fetch_array($run_pro)){
-                                $product_id = $row_pro['idInstrumento'];
+                                $product_id = $row_pro['idProduto'];
                                 $product_category = $row_pro['idCategoria'];
                                 $product_brand = $row_pro['idMarca'];
                                 $product_title = $row_pro['nome']; 
@@ -49,7 +49,7 @@
                                     <div class='prod_box'>
                                         <div class='center_prod_box'>
                                         <div class='product_img'>
-                                            <img src='img/instrumentos/$product_image'>
+                                            <img src='img/categorias/$product_image'>
                                         </div>
                                         <div class='product_title'>
                                             $product_title

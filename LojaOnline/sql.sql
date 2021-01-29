@@ -10,9 +10,6 @@ create table utilizador (
 	username varchar(15) not null,
 	email varchar(50) not null,
 	pw varchar(20) not null,
-	nif int,
-	telemovel bigint,
-	morada varchar(80) not null,
 	idTipoUtilizador int,
 	foreign key (idTipoUtilizador) references tipoUtilizador(idTipoUtilizador)
 );

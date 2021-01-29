@@ -50,10 +50,10 @@
                 <form class="form_signup" method="post" action="signup.php?a=signup" enctype="multipart/form-data">                     
                     <div id="signup-content">
                         <label>Nome:</label>
-                        <input type="text" name="nome" minlength=5 maxlength=15>
+                        <input type="text" name="primeironome" minlength=5 maxlength=15>
                         
                         <label>Apelido:</label>
-                        <input type="text" name="apelido" minlength=5 maxlength=15>
+                        <input type="text" name="ultimonome" minlength=5 maxlength=15>
 
                         <label>Email:</label>
                         <input type="email" name="email" maxlength=50>
@@ -80,16 +80,11 @@
 
         function RegistarUtilizador() {
             // Regista um novo utilizador
-            $nome = $_POST['nome'];
-            $apelido = $_POST['apelido'];
+            $primeironome = $_POST['primeironome'];
+            $ultimonome = $_POST['ultimonome'];
             $email = $_POST['email'];
             $password1 = $_POST['password1'];
             $password2 = $_POST['password2'];
-            $nif = "";
-            $morada = "";
-            $localidade = "";
-            $codpostal = "";
-            $avatar_empty = '../header/cliente.png'; 
             $idTipoUtilizador = '2'; 
     
             $erro = false;
@@ -99,7 +94,7 @@
             // Erros
     
             // Tem de preencher todos os campos
-            if($nome=="" || $apelido=="" || $email=="" || $password1=="" || $password2=="") {
+            if($primeironome=="" || $ultimonome=="" || $email=="" || $password1=="" || $password2=="") {
                 echo '<div class="erro">Tem de preencher os campos obrigatórios!</div>';
                 $erro = true;
             }
@@ -111,7 +106,7 @@
             }
 
             // Avatar - Default
-            $avatar['name'] = $avatar_empty;
+            //$avatar['name'] = $avatar_empty;
     
             //-------------------------------------------------------------------------------
             // Verificar se existiram erros
@@ -161,19 +156,13 @@
     
                 // Encriptar a password
                 $passwordEncriptada = md5($password1);
-    
-                $sql = "insert into utilizador values( :idUtilizador, :nome, :apelido, :email, :pw, :nif, :morada, :localidade, :codPostal, :avatar, :idTipoUtilizador)";
+                $idTipoUtilizador = 2;
+                $sql = "insert into utilizador (primeironome, ultimonome, email, pw, idTipoUtilizador) values(:primeironome, :ultimonome, :email, :pw, :idTipoUtilizador)";
                 $motor = $ligacao->prepare($sql);
-                $motor->bindparam(":idUtilizador", $id_temp, PDO::PARAM_INT);
-                $motor->bindparam(":nome", $nome, PDO::PARAM_STR);
-                $motor->bindparam(":apelido", $apelido, PDO::PARAM_STR);
+                $motor->bindparam(":primeironome", $nome, PDO::PARAM_STR);
+                $motor->bindparam(":ultimonome", $apelido, PDO::PARAM_STR);
                 $motor->bindparam(":email", $email, PDO::PARAM_STR);
                 $motor->bindparam(":pw", $passwordEncriptada, PDO::PARAM_STR);
-                $motor->bindparam(":nif", $nif, PDO::PARAM_INT);
-                $motor->bindparam(":morada", $morada, PDO::PARAM_STR);
-                $motor->bindparam(":localidade", $localidade, PDO::PARAM_STR);
-                $motor->bindparam(":codPostal", $codpostal, PDO::PARAM_STR);
-                $motor->bindparam(":avatar", $avatar['name'], PDO::PARAM_STR);
                 $motor->bindparam(":idTipoUtilizador", $idTipoUtilizador, PDO::PARAM_INT);
 
                 $motor->execute();
