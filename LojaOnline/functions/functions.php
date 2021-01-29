@@ -27,7 +27,6 @@ function getbrands_15_1(){
 
 	$get_brands = "select * from marca where idMarca >= 1 and idMarca <= 15 order by nome ASC";
 	$run_brands = mysqli_query($con,$get_brands);
-// <img src=" . $brand_img . " class='img-marca'></img><br>
 	while($row_brands=mysqli_fetch_array($run_brands)){
     $brand_id = $row_brands['idMarca'];
 		$brand_title = $row_brands['nome'];
@@ -35,7 +34,6 @@ function getbrands_15_1(){
     echo "
         <div id='flex-container'>
           <div class='flex-item'>
-          
           <img src='img/categorias/$brand_img'>
           </div>
           <div class='flex-item-center'>

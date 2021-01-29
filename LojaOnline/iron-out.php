@@ -33,7 +33,7 @@
                         if(!isset($_GET['brand'])){
                             global $con;
                             
-                            $get_pro = "select * from produto where estado='ativo' and idSubCategoria2='1' order by preco ASC";
+                            $get_pro = "select * from produto where nome = 'Iron Out' order by preco ASC";
                             $run_pro = mysqli_query($con,$get_pro);
                             
                             while($row_pro = mysqli_fetch_array($run_pro)){
