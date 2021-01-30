@@ -24,50 +24,47 @@
             <div class="flex-item" id="flex-left">
                 <?php include 'includes/marcas-left.php'; ?>
             </div>
-
-            <div class="flex-item-center">
+            
+        <div class="flex-item-center">
             <p class="location-bar"><a href="index.php">Pagina Inicial</a> > Proteger</p>
                 <br>
-                <div id="flex-container">
-                    <div class="flex-item" id="flex-left">
-                        <div class="categorias-box">
-                            <a href="iron-out.php" class="link-categoria">
-                                <img src="img/categorias/aquacoat.jpg" class="img-categoria">
-                                <p class="titulo-categoria">Lavagem hidrofóbica<br><br></p>
-                            </a>
-                        </div>
-                        <br>
-                        <div class="categorias-box">
-                            <a href="imperial.php" class="link-categoria">
-                                <img src="img/categorias/ceramicsglass.jpg" class="img-categoria">
-                                <p class="titulo-categoria">Ceramics Glass Cleaner<br><br></p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex-item" id="flex-left">
-                        <div class="categorias-box">
-                            <a href="avalanche.php" class="link-categoria">
-                                <img src="img/categorias/ceramicsenhancer.jpg" class="img-categoria">
-                                <p class="titulo-categoria">Ceramics Gloss Enhancer<br><br></p>
-                            </a>
-                        </div>
-                        <br>
-                        <div class="categorias-box">
-                            <a href="verso.php" class="link-categoria">
-                                <img src="img/categorias/mintrims.jpg" class="img-categoria">
-                                <p class="titulo-categoria">Cera para jantes<br><br></p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="flex-item" id="flex-left">
-                        <div class="categorias-box">
-                            <a href="eradicate.php" class="link-categoria">
-                                <img src="img/categorias/ceramicfoam.jpg" class="img-categoria">
-                                <p class="titulo-categoria">Ceramic Foam<br><br></p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                    <?php
+                    if(!isset($_GET['cat'])){
+                        if(!isset($_GET['brand'])){
+                            global $con;
+                            
+                            $get_pro = "select * from produto where idCategoria = 3 and estado = 'ativo' order by preco ASC";
+                            $run_pro = mysqli_query($con,$get_pro);
+                            
+                            while($row_pro = mysqli_fetch_array($run_pro)){
+                                $product_id = $row_pro['idProduto'];
+                                $product_category = $row_pro['idCategoria'];
+                                $product_brand = $row_pro['idMarca'];
+                                $product_title = $row_pro['nome']; 
+                                $product_price = $row_pro['preco'];
+                                $product_image = $row_pro['imagem'];
+                                
+                                echo "
+                                <a href='details.php?pro_id=$product_id' class='prod-link'>
+                                    <div class='prod_box'>
+                                        <div class='center_prod_box'>
+                                        <div class='product_img'>
+                                            <img src='img/categorias/$product_image'>
+                                        </div>
+                                        <div class='product_title'>
+                                            $product_title
+                                        </div>
+                                        <div class='prod_price'>
+                                            <span class='price'>$product_price €</span>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                ";
+                            }
+                        }
+                    }
+                ?>
             </div>
 
             <div class="flex-item" id="flex-right">
