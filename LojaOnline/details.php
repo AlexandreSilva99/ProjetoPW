@@ -79,6 +79,7 @@
                     $proddesc=$data["descricao"];
                     $prodimg=$data["imagem"];
                     $prodmarca=$data["idMarca"];
+                    $prodcategoria=$data["idCategoria"];
                   
           ?>
                   <div class="add-prod-box">
