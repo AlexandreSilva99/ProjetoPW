@@ -8,7 +8,7 @@
     <div id="shadow">
     <div id="header">
                 <div id="headerLeft">
-                    <a href="index.php">Pro Detail</a>
+                    <a href="index.php"><img src="img/logo.png" alt=""></a>
                 </div>
                 
                 <div id="search">
@@ -52,7 +52,7 @@
                             elseif(isset($_SESSION['email'])){
                                 echo '
                                     <div class="dropdown">
-                                        <div id="topRight"><img onclick="dropuser()" class="dropuserbtt" src="img/header/admin.png" id="user_header_img" onmouseover="user_over()" onmouseout="user_out()"></div>  
+                                        <div id="topRight"><img onclick="dropuser()" class="dropuserbtt" src="img/header/cliente_hover.png" id="user_header_img" onmouseover="user_over()" onmouseout="user_out()" alt=""></div>  
                                         <div id="dropdownuser" class="dropdown-content">
                                             <br>
                                             <a href="profile.php">Perfil</a>

@@ -305,7 +305,7 @@ function get_pro_brand(){
 
 function preco_final() {
   include 'includes/config.php';
-  $con = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
+  $conn = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
 
   if (isset($_SESSION['email'])) {
     $email_user = $_SESSION['email'];
@@ -342,7 +342,7 @@ function preco_final() {
 
 function total_itens_cart(){
   include 'includes/config.php';
-  $con = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
+  $conn = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
 
   if (isset($_SESSION['email'])) {
     $email_user = $_SESSION['email'];
@@ -379,7 +379,7 @@ function total_itens_cart(){
 
 function cart(){
   include 'includes/config.php';
-  $con = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
+  $conn = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
 
   if (isset($_SESSION['email'])) {
     $email_user = $_SESSION['email'];
@@ -433,7 +433,7 @@ function cart(){
                         </td>
                         <td class="prodimg-cart-title">
                           <a href="details.php?pro_id=' . $produto['idProduto'] . '">
-                            <img src="img/produtos/' . $produto['imagem'] . '" width=50px>
+                            <img src="img/categorias/' . $produto['imagem'] . '" width=50px>
                           </a>
                         </td>
                         <td class="productname-cart-title">
