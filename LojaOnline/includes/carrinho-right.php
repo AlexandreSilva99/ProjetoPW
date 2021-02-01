@@ -4,10 +4,10 @@
             Carrinho
         </p>
         <div class="carrinho_details">
-            <?php //total_itens_cart(); ?>&nbsp;item(s) 
+            <?php total_itens_cart(); ?>&nbsp;item(s) 
             <br>
             <hr class="hr-carrinho">
-            <p class="total-carrinho">Total</p> <span class="price"><?php// preco_final(); ?>
+            <p class="total-carrinho">Total</p> <span class="price"><?php preco_final(); ?>
         </div>
         <div class="carrinho_icon">
             <a href="cart.php">

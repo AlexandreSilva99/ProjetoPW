@@ -52,7 +52,7 @@
                             elseif(isset($_SESSION['email'])){
                                 echo '
                                     <div class="dropdown">
-                                        <div id="topRight"><img onclick="dropuser()" class="dropuserbtt" src="img/avatars/'.$_SESSION['avatar'].'" id="user_header_img"></div>  
+                                        <div id="topRight"><img onclick="dropuser()" class="dropuserbtt" src="img/header/admin.png" id="user_header_img" onmouseover="user_over()" onmouseout="user_out()"></div>  
                                         <div id="dropdownuser" class="dropdown-content">
                                             <br>
                                             <a href="profile.php">Perfil</a>
