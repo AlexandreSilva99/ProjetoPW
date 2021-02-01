@@ -42,7 +42,7 @@
 
     // Veriicação dos dados de login
 
-    $passwordEncriptada = md5($password_utilizador);
+    //$passwordEncriptada = md5($password_utilizador);
 
     include 'includes/config.php';
     $ligacao = new PDO("mysql:dbname=$base_dados;host=$host", $user, $password);
@@ -51,7 +51,8 @@
     if ($_POST['user_email'] == "Admin") {
         $motor->bindParam(2, $password_utilizador, PDO::PARAM_STR);
     } else {
-        $motor->bindParam(2, $passwordEncriptada, PDO::PARAM_STR);
+        $motor->bindParam(2, $password_utilizador, PDO::PARAM_STR);
+        //$motor->bindParam(2, $passwordEncriptada, PDO::PARAM_STR);
     }
     $motor->execute();
     $ligacao = null;
@@ -71,7 +72,7 @@
     {
         // Definir os dados da sessão
         $_SESSION['email'] = $utilizador;
-        $_SESSION['avatar'] = $motor->fetch(PDO::FETCH_ASSOC)['avatar'];
+        //$_SESSION['avatar'] = $motor->fetch(PDO::FETCH_ASSOC)['avatar'];
 
         header('Location: index.php');
     }

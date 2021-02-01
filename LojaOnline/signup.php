@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $ligacao = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003446_prodetailers");
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -55,6 +60,9 @@
                         <label>Apelido:</label>
                         <input type="text" name="ultimonome" minlength=5 maxlength=15>
 
+                        <label>Username:</label>
+                        <input type="text" name="User" maxlength=50>
+
                         <label>Email:</label>
                         <input type="email" name="email" maxlength=50>
 
@@ -82,6 +90,7 @@
             // Regista um novo utilizador
             $primeironome = $_POST['primeironome'];
             $ultimonome = $_POST['ultimonome'];
+            $username = $_POST['User'];
             $email = $_POST['email'];
             $password1 = $_POST['password1'];
             $password2 = $_POST['password2'];
@@ -94,7 +103,7 @@
             // Erros
     
             // Tem de preencher todos os campos
-            if($primeironome=="" || $ultimonome=="" || $email=="" || $password1=="" || $password2=="") {
+            if($primeironome=="" || $ultimonome=="" || $username="" || $email=="" || $password1=="" || $password2=="") {
                 echo '<div class="erro">Tem de preencher os campos obrigatórios!</div>';
                 $erro = true;
             }
@@ -157,10 +166,11 @@
                 // Encriptar a password
                 $passwordEncriptada = md5($password1);
                 $idTipoUtilizador = 2;
-                $sql = "insert into utilizador (primeironome, ultimonome, email, pw, idTipoUtilizador) values(:primeironome, :ultimonome, :email, :pw, :idTipoUtilizador)";
+                $sql = "insert into utilizador values(:primeironome, :ultimonome, :username, :email, :pw, :idTipoUtilizador)";
                 $motor = $ligacao->prepare($sql);
-                $motor->bindparam(":primeironome", $nome, PDO::PARAM_STR);
+                $motor->bindparam(":primeironome", $primeironome, PDO::PARAM_STR);
                 $motor->bindparam(":ultimonome", $apelido, PDO::PARAM_STR);
+                $motor->bindparam(":username", $username, PDO::PARAM_STR);
                 $motor->bindparam(":email", $email, PDO::PARAM_STR);
                 $motor->bindparam(":pw", $passwordEncriptada, PDO::PARAM_STR);
                 $motor->bindparam(":idTipoUtilizador", $idTipoUtilizador, PDO::PARAM_INT);
