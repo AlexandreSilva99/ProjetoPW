@@ -31,7 +31,7 @@
                     while($dados_user = mysqli_fetch_assoc($selectr_user)){
                         echo '
                             <div class="img-profile">
-                                <img src="img/avatars/' . $dados_user['avatar'] . '">
+                                <img src="img/header/cliente.png">
                             </div>
                         ';
                     }
@@ -56,57 +56,57 @@
                         }
 
                         // NIF
-                        if ($dados_user['nif'] == '0') {
-                            $nif_user = "Não definido";
-                        } else {
-                            $nif_user = $dados_user['nif'];
-                        }
+                        // if ($dados_user['nif'] == '0') {
+                        //     $nif_user = "Não definido";
+                        // } else {
+                        //     $nif_user = $dados_user['nif'];
+                        // }
 
                         // Morada
-                        if ($dados_user['morada'] == '') {
-                            $morada_user = "Não definido";
-                        } else {
-                            $morada_user = $dados_user['morada'];
-                        }
+                        // if ($dados_user['morada'] == '') {
+                        //     $morada_user = "Não definido";
+                        // } else {
+                        //     $morada_user = $dados_user['morada'];
+                        // }
 
                         // Localidade
-                        if ($dados_user['localidade'] == '') {
-                            $localidade_user = "Não definido";
-                        } else {
-                            $localidade_user = $dados_user['localidade'];
-                        }
+                        // if ($dados_user['localidade'] == '') {
+                        //     $localidade_user = "Não definido";
+                        // } else {
+                        //     $localidade_user = $dados_user['localidade'];
+                        // }
 
                         // CodPostal
-                        if ($dados_user['codPostal'] == '') {
-                            $codpostal_user = "Não definido";
-                        } else {
-                            $codpostal_user = $dados_user['codPostal'];
-                        }
+                        // if ($dados_user['codPostal'] == '') {
+                        //     $codpostal_user = "Não definido";
+                        // } else {
+                        //     $codpostal_user = $dados_user['codPostal'];
+                        // }
 
 
-                        echo '
-                            <table class="dados_user">
-                                <tr>
-                                    <td>
-                                        <b>Nome</b><br> ' . $dados_user['nome'] . ' ' . $dados_user['apelido'] . '
-                                        <br><br>
-                                        <b>Email</b><br> ' . $dados_user['email'] . '
-                                        <br><br>
-                                        <b>NIF</b><br> ' . $nif_user . '
-                                    </td>
-                                    <td>
-                                        <b>Localidade</b><br> ' . $localidade_user . '
-                                        <br><br>
-                                        <b>Morada</b><br> ' . $morada_user . '
-                                        <br><br>
-                                        <b>Código Postal</b><br> ' . $codpostal_user . '
-                                    </td>
-                                </tr>
-                            </table>
-                            <br><br>
-                            <a href="profile_edit.php" class="edit-profile-link"><button class="editar-user">Editar dados</button></a>
-                            <br>
-                        ';
+                        // echo '
+                        //     <table class="dados_user">
+                        //         <tr>
+                        //             <td>
+                        //                 <b>Nome</b><br> ' . $dados_user['nome'] . ' ' . $dados_user['apelido'] . '
+                        //                 <br><br>
+                        //                 <b>Email</b><br> ' . $dados_user['email'] . '
+                        //                 <br><br>
+                        //                 <b>NIF</b><br> ' . $nif_user . '
+                        //             </td>
+                        //             <td>
+                        //                 <b>Localidade</b><br> ' . $localidade_user . '
+                        //                 <br><br>
+                        //                 <b>Morada</b><br> ' . $morada_user . '
+                        //                 <br><br>
+                        //                 <b>Código Postal</b><br> ' . $codpostal_user . '
+                        //             </td>
+                        //         </tr>
+                        //     </table>
+                        //     <br><br>
+                        //     <a href="profile_edit.php" class="edit-profile-link"><button class="editar-user">Editar dados</button></a>
+                        //     <br>
+                        // ';
                     }
                 ?>
             </div>

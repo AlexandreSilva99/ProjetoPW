@@ -55,7 +55,7 @@
                 <form class="form_signup" method="post" action="signup.php?a=signup" enctype="multipart/form-data">                     
                     <div id="signup-content">
                         <label>Nome:</label>
-                        <input type="text" name="primeironome" minlength=5 maxlength=15>
+                        <input type="text" name="primeironome" minlength=3 maxlength=15>
                         
                         <label>Apelido:</label>
                         <input type="text" name="ultimonome" minlength=5 maxlength=15>
@@ -172,7 +172,8 @@
                 $motor->bindparam(":ultimonome", $apelido, PDO::PARAM_STR);
                 $motor->bindparam(":username", $username, PDO::PARAM_STR);
                 $motor->bindparam(":email", $email, PDO::PARAM_STR);
-                $motor->bindparam(":pw", $passwordEncriptada, PDO::PARAM_STR);
+                $motor->bindparam(":pw", $password1, PDO::PARAM_STR);
+                //$motor->bindparam(":pw", $passwordEncriptada, PDO::PARAM_STR);
                 $motor->bindparam(":idTipoUtilizador", $idTipoUtilizador, PDO::PARAM_INT);
 
                 $motor->execute();

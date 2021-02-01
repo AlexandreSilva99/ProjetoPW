@@ -108,7 +108,7 @@
                             $sqlresult = mysqli_query($conn, $sql);
                             if (mysqli_num_rows($sqlresult) > 0) {
                                 while ($dadosenc = mysqli_fetch_assoc($sqlresult)) {
-                                    $produtoid = $dadosenc['idproduto'];
+                                    $produtoid = $dadosenc['idProduto'];
                                     $utilizadorid = $dadosenc['idUtilizador'];
 
                                     // Dados utilizador
@@ -127,10 +127,10 @@
                                         <table class="pessoa-enc">
                                             <tr>
                                                 <td class="pessoa-img">
-                                                    <img src="img/avatars/' . $dadosutilizador['avatar'] . '">
+                                                    <img src="img/header/cliente_hover.png">
                                                 </td>
                                                 <td class="pessoa-email">
-                                                    ' . $dadosutilizador['nome'] . ' ' . $dadosutilizador['apelido'] . '&nbsp&nbsp&nbsp-&nbsp&nbsp&nbsp' . $dadosutilizador['email'] . '
+                                                    ' . $dadosutilizador['primeironome'] . ' ' . $dadosutilizador['ultimonome'] . '&nbsp&nbsp&nbsp-&nbsp&nbsp&nbsp' . $dadosutilizador['email'] . '
                                                 </td>
                                             </tr>
                                         </table>

@@ -21,7 +21,7 @@
         <div id="body">
             <br><br><br><br>
             <div class="login-box" id="divLogin">
-                <a href="index.php">Pro Detail</a>
+                <a href="index.php"><img id="login" src="img/logo.png"></a>
                 <br>
                 <h1>Iniciar sessão</h1>
                 <br><br>
