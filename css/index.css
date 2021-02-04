@@ -1,0 +1,62 @@
+body h2 {
+    text-align: center;
+}
+
+div#destaque {
+    width: 100%;
+    height: 650px;
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+
+div.square {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.square a {
+    text-decoration: none;
+    color: #000;
+}
+
+.square:hover .overlay {
+    bottom: 0;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #0078FF;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .1s ease;
+    opacity: .9;
+}
+
+div.overlay p {
+    position: absolute;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    opacity: 5;
+}
+
+p.title {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+p.price {
+    font-size: 18px;
+    text-align: center;
+}
