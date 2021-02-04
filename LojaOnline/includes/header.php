@@ -42,6 +42,7 @@
                                         <div id="dropdownuser" class="dropdown-content">
                                             <br>
                                             <a href="functions/adicionar">Adicionar prod.</a>
+                                            <a href="prod_Inactive.php">Voltar ativar prod.</a>
                                             <a href="encomendas.php">Ver encomendas</a>
                                             <a href="logout.php">Terminar Sessão</a>
                                         </div>

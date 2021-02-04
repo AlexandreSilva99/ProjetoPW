@@ -31,7 +31,7 @@
                     while($dados_user = mysqli_fetch_assoc($selectr_user)){
                         echo '
                             <div class="img-profile">
-                                <img src="img/header/cliente.png">
+                                <img src="img/header/cliente_hover.png">
                             </div>
                         ';
                     }
@@ -46,69 +46,54 @@
                     $select_user = "SELECT * FROM utilizador WHERE email = '$email'";
                     $selectr_user = mysqli_query($conn, $select_user);
                     while($dados_user = mysqli_fetch_assoc($selectr_user)){
-                        if (isset($_GET['success']) && $_GET['success'] == "TRUE"){
-                            //$_SESSION['avatar'] = $dados_user['avatar'];
-                            echo '
-                                <head>
-                                    <meta http-equiv="refresh" content="0.00001;url=profile.php">
-                                </head>
-                            ';
-                        }
-
-                        //NIF
+                        // NIF
                         if ($dados_user['nif'] == '0') {
-                            $nif_user = "Não definido";
+                            $nif_user = "";
                         } else {
                             $nif_user = $dados_user['nif'];
                         }
 
-                        // Morada
-                        if ($dados_user['morada'] == '') {
-                            $morada_user = "Não definido";
-                        } else {
-                            $morada_user = $dados_user['morada'];
-                        }
-
-                        // Localidade
-                        if ($dados_user['localidade'] == '') {
-                            $localidade_user = "Não definido";
-                        } else {
-                            $localidade_user = $dados_user['localidade'];
-                        }
-
-                        // CodPostal
-                        if ($dados_user['codPostal'] == '') {
-                            $codpostal_user = "Não definido";
-                        } else {
-                            $codpostal_user = $dados_user['codPostal'];
-                        }
-
 
                         echo '
-                            <table class="dados_user">
-                                <tr>
-                                    <td>
-                                        <b>Nome</b><br> ' . $dados_user['primeironome'] . ' ' . $dados_user['ultimonome'] . '
-                                        <br><br>
-                                        <b>Email</b><br> ' . $dados_user['email'] . '
-                                        <br><br>
-                                        <b>NIF</b><br> ' . $nif_user . '
-                                    </td>
-                                    <td>
-                                        <b>Localidade</b><br> ' . $localidade_user . '
-                                        <br><br>
-                                        <b>Morada</b><br> ' . $morada_user . '
-                                        <br><br>
-                                        <b>Código Postal</b><br> ' . $codpostal_user . '
-                                    </td>
-                                </tr>
-                            </table>
-                            <br><br>
-                            <a href="profile_edit.php" class="edit-profile-link"><button class="editar-user">Editar dados</button></a>
-                            <br>
+                            <form action="profile_edit_verify.php" method="POST" enctype="multipart/form-data">
+                                <table class="dados_user">
+                                    <tr>
+                                        <td>
+                                            <b>Nome</b><br>
+                                                <input type="text" name="nome_edit" value="' . $dados_user['primeironome'] . '" minlength=3 maxlength=15></input>
+                                            <br><br>
+                                            <b>Apelido</b><br>
+                                                <input type="text" name="apelido_edit" value="' . $dados_user['ultimonome'] . '" minlength=3 maxlength=15></input>
+                                            <br><br>
+                                            <b>Email</b><br>
+                                                ' . $dados_user['email'] . '
+                                            <br><br>
+                                            <b>NIF</b><br>
+                                                <input type="text" name="nif_edit" value="' . $nif_user . '" maxlength=9></input>
+                                        </td>
+                                        <td>
+                                            <b>Localidade</b><br>
+                                                <input type="text" name="localidade_edit" value="' . $dados_user['localidade'] . '" maxlength=35></input>
+                                            <br><br>
+                                            <b>Morada</b><br>
+                                                <input type="text" name="morada_edit" value="' . $dados_user['morada'] . '" maxlength=80></input>
+                                            <br><br>
+                                            <b>Código Postal</b><br>
+                                                <input type="text" name="codpostal_edit" value="' . $dados_user['codPostal'] . '" maxlength=8></input>
+                                            <br><br>
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <button class="editar-user">Confirmar dados</button>
+                                <br>
+                            </form>
                         ';
                     }
                 ?>
+                <!-- <b>Avatar</b>
+                                                <input type="file" name="avatar_edit" accept="image/*"> -->
             </div>
 
             <div class="flex-item" id="flex-right">

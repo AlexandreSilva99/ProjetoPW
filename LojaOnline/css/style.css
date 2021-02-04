@@ -222,7 +222,7 @@ p#login_text {
     display: none;
     position: relative;
     width: 150px;
-    height: 123px;
+    height: auto;
     padding: 0px;
     background: rgb(245, 245, 245);
     -webkit-border-radius: 8px;
@@ -262,7 +262,7 @@ p#login_text {
 }
 
 div#dropdownuser {
-    height: 165px;
+    height:fit-content;
     z-index:100;
 }
 

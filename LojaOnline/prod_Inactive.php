@@ -26,14 +26,14 @@
             </div>
 
             <div class="flex-item-center">
-            <p class="location-bar"><a href="index.php">Pagina Inicial</a> > Lavar</p>
+            <p class="location-bar"><a href="index.php">Ativar Produtos</a></p>
                 <br>
                     <?php
                     if(!isset($_GET['cat'])){
                         if(!isset($_GET['brand'])){
                             global $con;
                             
-                            $get_pro = "select * from produto where idCategoria = 1 and estado = 'ativo' order by preco ASC";
+                            $get_pro = "select * from produto where estado = 'inativo' order by preco ASC";
                             $run_pro = mysqli_query($con,$get_pro);
                             
                             while($row_pro = mysqli_fetch_array($run_pro)){
@@ -45,7 +45,7 @@
                                 $product_image = $row_pro['imagem'];
                                 
                                 echo "
-                                <a href='details.php?pro_id=$product_id' class='prod-link'>
+                                <a href='detailsinactive.php?pro_id=$product_id' class='prod-link'>
                                     <div class='prod_box'>
                                         <div class='center_prod_box'>
                                         <div class='product_img'>

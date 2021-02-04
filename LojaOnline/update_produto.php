@@ -23,8 +23,8 @@ $conn = mysqli_connect("localhost","id16003446_root","!x)+\Z%D==03H8D1","id16003
 
           $prodid=$_POST['idprod'];
           $prodname=htmlspecialchars($_POST['nome']);
-          $prodpreco=floatval(htmlspecialchars($_POST['preco']));
           $proddesc=htmlspecialchars($_POST['descricao']);
+          $prodpreco=floatval(htmlspecialchars($_POST['preco']));
           $prodmarca=htmlspecialchars($_POST['idMarca']);
           $prodcategoria=htmlspecialchars($_POST['idCategoria']);
 

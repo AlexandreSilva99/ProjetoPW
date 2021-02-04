@@ -191,7 +191,7 @@ function getpro(){
 		if(!isset($_GET['brand'])){
       global $con;
       
-      $get_pro = "select * from produto order by idProduto DESC LIMIT 9";
+      $get_pro = "select * from produto where estado = 'ativo' order by idProduto DESC LIMIT 9";
       $run_pro = mysqli_query($con,$get_pro);
     
       while($row_pro = mysqli_fetch_array($run_pro)){
@@ -270,7 +270,7 @@ function get_pro_brand(){
 		$brand_id = $_GET['brand'];
 	  global $con;
 
-    $get_pro = "select * from produto where idMarca = '$brand_id'";
+    $get_pro = "select * from produto where idMarca = '$brand_id' and estado= 'ativo'";
     $run_pro = mysqli_query($con,$get_pro);
     
     while($row_pro = mysqli_fetch_array($run_pro)){
